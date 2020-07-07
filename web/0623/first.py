@@ -1,7 +1,7 @@
 import pandas as pd
 
 # 生成新csv
-trade = pd.read_csv("db/trade 2020-06-25.csv", low_memory=False)
+trade = pd.read_csv("db/trade 2020-07-03.csv", low_memory=False)
 trade = trade[trade['is_chain_version'] == 1]
 trade['create_time'] = pd.to_datetime(trade['create_time'], unit='s')
 trade['create_time'] = trade['create_time'].dt.strftime('%Y-%m')    # 或者 dt.year / dt.month / dt.day / dt.data
