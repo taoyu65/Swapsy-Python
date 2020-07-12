@@ -26,15 +26,15 @@ df['recharge_count'].fillna(0, inplace=True)
 df['recharge_count'] = df['recharge_count'].astype(int)
 
 # group2: by user amount
-group_a = df[df['less_than_3'] == 0].groupby('create_time')['count'].count().reset_index(name='less_than_3_count')
-group_b = df[df['greater_than_3'] == 0].groupby('create_time')['count'].count().reset_index(name='greater_than_3_count')
+group_a = df[df['less_than_3'] > 0].groupby('create_time')['count'].count().reset_index(name='less_than_3_count')
+group_b = df[df['less_than_3'] == 0].groupby('create_time')['count'].count().reset_index(name='greater_than_3_count')
 group2 = pd.merge(group_a, group_b, on='create_time', how='inner')
 group2['count_greater_than_3_all'] = group2['less_than_3_count'] + group2['greater_than_3_count']
 # source2 = ColumnDataSource(group2)
 
 # group3: user of trade amount <3, stacker recharged and not recharged
 # columns: less_than_3_not_recharged less_than_3_recharged
-group3 = df[df['less_than_3'] == 0]
+group3 = df[df['less_than_3'] > 0]
 group3_a = group3[group3['recharge_count'] == 0].groupby(['create_time'])['count']\
     .count().reset_index(name='less_than_3_not_recharged')
 group3_b = group3[group3['recharge_count'] > 0].groupby(['create_time'])['count']\
