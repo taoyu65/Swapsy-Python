@@ -7,7 +7,7 @@ import pandas as pd
 trade = pd.read_csv("db/trade 2020-07-03.csv", low_memory=False)
 credit_trans = pd.read_csv("db/credit_transaction 2020-07-05.csv", low_memory=False)
 
-start_time = 1577862000     # 2020-01-01
+start_time = 1546326000     # 2019-01-01
 end_time = 1593586800       # 2020-07-01
 
 trade = trade[(trade['create_time'] > start_time) & (trade['create_time'] < end_time)]
@@ -15,7 +15,7 @@ trade = trade[trade['status'] == 40]
 trade = trade[['seller_id']]
 trade = trade.drop_duplicates(subset='seller_id', keep='first')
 trade['user_id'] = trade['seller_id']
-# result: 有交易的用户 5553
+# result: 有交易的用户 10318
 # print(trade)
 
 credit_trans = credit_trans[(credit_trans['create_time'] < end_time)]
@@ -45,10 +45,10 @@ result = result.groupby('user_id')[['credit_change', 'usd']].sum()
 # exit()
 have_recharged_person_count = result[result['usd'] > 0]
 print(have_recharged_person_count.count())
-# 有充值用户总数: 4994
+# 有充值用户总数: 7954
 
 have_recharged_amount = result['usd'].sum()
 print(have_recharged_amount)
-# 有交易用户得充值总额: $497676
+# 有交易用户得充值总额: $622486
 
 result.to_csv('csv/main3.csv')
