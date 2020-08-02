@@ -14,3 +14,7 @@ web/0623/html
 /web/stimulation/csv/
 /web/stimulation/db/
 /web/stimulation/html/
+
+/web/*/csv/
+/web/*/db/
+/web/*/html/
