@@ -5,19 +5,22 @@ import numpy as np
 db1 = pd.read_csv("../csv/second.csv", low_memory=False)
 db2 = pd.read_csv("../csv/third.csv", low_memory=False)
 
+# variable
+target_month = '2020-02'
+
 db1['user_id'] = db1['seller_id']
 db = pd.merge(db1, db2, on=['create_time', 'user_id'], how='left')
 db['recharge_count'].fillna(0, inplace=True)
 db['recharge_count'] = db['recharge_count'].astype(int)
 
-db = db[db['create_time'] == '2020-01']
+db = db[db['create_time'] == target_month]
 db = db[db['less_than_3'] > 0]
 db = db[db['recharge_count'] == 0]
 db = db[['user_id']]
 db['user_id'] = db['user_id'].astype(int)
 
-db1 = db1[db1['create_time'] > '2020-01']
-# 计算 2020-01以后 有几个整月 有交易. eg: 2代表 2020-01后 有2个月 有交易
+db1 = db1[db1['create_time'] > target_month]
+# 计算 2020-02(target_month)以后 有几个整月 有交易. eg: 2代表 2020-02后 有2个月 有交易
 db['count'] = 0
 
 for index, row in db.iterrows():
