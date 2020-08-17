@@ -1,11 +1,16 @@
 import pandas as pd
 import numpy as np
 
+# 1577862000 = 2020-01-01 PDT 开始
+variable = 1577862000
+
 # 生成新csv
 trans = pd.read_csv("db/credit_transaction 2020-07-05.csv", low_memory=False)
+part_trans = pd.read_csv("db/part credit_transaction 07-05 to 08-17.csv", low_memory=False)
+trans = trans.append(part_trans)
 
 # 1577862000 = 2020-01-01 PDT
-trans = trans[(trans['create_time'] > 1577862000) & (trans['credit_rule_id'].isin([19, 37]))]
+trans = trans[(trans['create_time'] > variable) & (trans['credit_rule_id'].isin([19, 37]))]
 
 trans = trans[['user_id', 'credit_rule_id', 'credit_change', 'create_time']]
 

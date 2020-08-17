@@ -4,7 +4,7 @@ from bokeh.models import CustomJSHover, HoverTool, ColumnDataSource
 from bokeh.palettes import Spectral3, Oranges3, Accent3, Accent4, Accent8
 from bokeh.plotting import figure, output_file, show
 
-db = pd.read_csv("db/credit_payment 2020-07-16.csv", low_memory=False)
+db = pd.read_csv("db/credit_payment 2020-08-17.csv", low_memory=False)
 
 output_file('html/main.html')
 

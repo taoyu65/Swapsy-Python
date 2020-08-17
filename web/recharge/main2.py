@@ -1,7 +1,4 @@
-import numpy as np
-import datetime as dt
 import pandas as pd
-from bokeh.layouts import column
 from bokeh.models import CustomJSHover, HoverTool, ColumnDataSource
 from bokeh.palettes import Spectral3, Oranges3, Accent3, Accent4, Accent8
 
@@ -11,7 +8,7 @@ from bokeh.plotting import figure, output_file, show
 
 db = pd.read_csv("csv/main.csv", low_memory=False)
 
-output_file('html/main.html')
+output_file('html/main2.html')
 
 group = db.groupby('create_time')[['usd10', 'usd20', 'usd50', 'usd200', 'usd']].sum()
 print(group)
