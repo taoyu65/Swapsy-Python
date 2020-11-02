@@ -6,7 +6,7 @@ db1 = pd.read_csv("../csv/second.csv", low_memory=False)
 db2 = pd.read_csv("../csv/third.csv", low_memory=False)
 
 # variable
-target_month = '2020-02'
+target_month = '2020-05'
 
 db1['user_id'] = db1['seller_id']
 db = pd.merge(db1, db2, on=['create_time', 'user_id'], how='left')

@@ -1,9 +1,9 @@
 import pandas as pd
 
 # 生成新csv - recharge view
-trans = pd.read_csv("db/credit_transaction 2020-07-05.csv", low_memory=False)
-trans_part1 = pd.read_csv("db/credit_transaction 2020-07-05 to 2020-08-11.csv", low_memory=False)
-trans = trans.append(trans_part1)
+trans = pd.read_csv("db/credit_transaction 2020-11-02.csv", low_memory=False)
+# trans_part1 = pd.read_csv("db/credit_transaction 2020-07-05 to 2020-09-07.csv", low_memory=False)
+# trans = trans.append(trans_part1)
 
 trans = trans[(trans['credit_rule_id'] == 14) | (trans['credit_rule_id'] == 19)]
 trans = trans[['user_id', 'create_time']]

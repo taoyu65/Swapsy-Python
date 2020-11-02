@@ -97,5 +97,5 @@ p2.add_tools(hover2)
 p.legend.location = 'top_left'
 p2.legend.location = 'top_left'
 
-show(p)
-# show(p2)
+# show(p)
+show(p2)

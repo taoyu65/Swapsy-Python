@@ -2,12 +2,12 @@ import pandas as pd
 import numpy as np
 
 # 处理 trade 表. 拿到2020-01月用户买入币种
-trade = pd.read_csv("../db/trade 2020-07-03.csv", low_memory=False)
-trade_part1 = pd.read_csv("../db/trade 2020-07-03 to 2020-08-11.csv", low_memory=False)
-trade = trade.append(trade_part1)
+trade = pd.read_csv("../db/trade 2020-11-02.csv", low_memory=False)
+# trade_part1 = pd.read_csv("../db/trade 2020-07-03 to 2020-09-07.csv", low_memory=False)
+# trade = trade.append(trade_part1)
 
 # variable
-target_month = '2020-02'
+target_month = '2020-05'
 
 trade['create_time'] = pd.to_datetime(trade['create_time'], unit='s')
 trade['create_time'] = trade['create_time'].dt.strftime('%Y-%m')    #

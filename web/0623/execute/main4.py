@@ -2,14 +2,14 @@ import pandas as pd
 import numpy as np
 import random
 
-# 2020-02 (target_month) 月以后在也没回来的用户 (user_id 和 最后的buying_currency)
+# 2020-05 (target_month) 月以后在也没回来的用户 (user_id 和 最后的buying_currency)
 
 user = pd.read_csv("csv/main2.csv", low_memory=False)
 trade = pd.read_csv("csv/main3.csv", low_memory=False)
 
 # variable 需要计算
-group_a_split = 57
-group_b_split = 96
+group_a_split = 133
+group_b_split = 44
 
 # db = pd.merge(user, trade, on='user_id', how='inner')
 # user.set_index('user_id').join(trade, on='user_id')
