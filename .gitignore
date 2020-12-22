@@ -19,3 +19,5 @@ web/0623/html
 /web/*/db/
 /web/*/html/
 /web/0623/execute/db/
+/db/
+/db/*
