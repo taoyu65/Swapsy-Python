@@ -8,12 +8,8 @@ import pandas as pd
 start_time = 1546326000     # 2019-01-01
 end_time = 1597682736       # 2020-08-17
 
-trade = pd.read_csv("db/trade 2020-07-03.csv", low_memory=False)
-credit_trans = pd.read_csv("db/credit_transaction 2020-07-05.csv", low_memory=False)
-part_trade = pd.read_csv("db/part trade 07-03 to 08-17.csv", low_memory=False)
-part_credit_trans = pd.read_csv("db/part credit_transaction 07-05 to 08-17.csv", low_memory=False)
-trade = trade.append(part_trade)
-credit_trans = credit_trans.append(part_credit_trans)
+trade = pd.read_csv("../../db/new/trade.csv", low_memory=False)
+credit_trans = pd.read_csv("../../db/new/credit_transaction 2021-01-25.csv", low_memory=False)
 
 trade = trade[(trade['create_time'] > start_time) & (trade['create_time'] < end_time)]
 trade = trade[trade['status'] == 40]

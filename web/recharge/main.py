@@ -5,9 +5,7 @@ import numpy as np
 variable = 1577862000
 
 # 生成新csv
-trans = pd.read_csv("db/credit_transaction 2020-07-05.csv", low_memory=False)
-part_trans = pd.read_csv("db/part credit_transaction 07-05 to 08-17.csv", low_memory=False)
-trans = trans.append(part_trans)
+trans = pd.read_csv("../../db/new/credit_transaction 2021-01-25.csv", low_memory=False)
 
 # 1577862000 = 2020-01-01 PDT
 trans = trans[(trans['create_time'] > variable) & (trans['credit_rule_id'].isin([19, 37]))]

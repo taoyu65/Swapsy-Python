@@ -3,9 +3,9 @@ import pandas as pd
 # 要邀请人所有交易数 和 充值总数
 
 trade = pd.read_csv("../../db/new/trade.csv", low_memory=False)
-inviter = pd.read_csv("../../db/invitation_user 11-16.csv", low_memory=False)
-nmi = pd.read_csv("../../db/credit_nmi_transaction 11-16.csv", low_memory=False)
-manual = pd.read_csv("../../db/credit_payment 11-16.csv", low_memory=False)
+inviter = pd.read_csv("../../db/new/invitation_user 2021-01-25.csv", low_memory=False)
+nmi = pd.read_csv("../../db/new/credit_nmi_transaction 2021-01-25.csv", low_memory=False)
+manual = pd.read_csv("../../db/new/credit_payment 2021-01-25.csv", low_memory=False)
 
 # check specific inviters contribute
 # inviter = inviter[inviter['inviter_id'] == 22328]

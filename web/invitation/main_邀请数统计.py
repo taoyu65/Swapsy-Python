@@ -10,8 +10,8 @@ from bokeh.models.widgets import DataTable, DateFormatter, TableColumn
 # 变量, 是否计算ID验证的
 var_isCountIdVerify = False
 
-invite = pd.read_csv("../../db/new/invitation_user 12-21.csv", low_memory=False)
-identification = pd.read_csv("../../db/new/user_identification 12-21.csv", low_memory=False)
+invite = pd.read_csv("../../db/new/invitation_user 2021-01-25.csv", low_memory=False)
+identification = pd.read_csv("../../db/new/user_identification 2021-01-25.csv", low_memory=False)
 
 invite = invite[['inviter_id', 'invitee_id']]
 identification = identification[['user_id', 'status']]

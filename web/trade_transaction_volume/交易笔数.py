@@ -8,7 +8,7 @@ import pandas as pd
 
 output_file("html/交易笔数.html")
 
-trade = pd.read_csv("../../db/new/trade 2020-12-26.csv", low_memory=False)
+trade = pd.read_csv("../../db/new/trade.csv", low_memory=False)
 
 trade = trade[(trade['is_chain_version'] == 1) & (trade['status'] == 40)]
 trade['create_time'] = pd.to_datetime(trade['create_time'], unit='s')
