@@ -1,7 +1,7 @@
 import pandas as pd
 
 # 生成新csv - recharge view
-trans = pd.read_csv("../../db/new/credit_transaction 2021-01-25.csv", low_memory=False)
+trans = pd.read_csv("../../db/new/credit_transaction 2021-03-15.csv", low_memory=False)
 # trans_part1 = pd.read_csv("db/credit_transaction 2020-07-05 to 2020-09-07.csv", low_memory=False)
 # trans = trans.append(trans_part1)
 

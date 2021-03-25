@@ -79,16 +79,37 @@ result = result.reset_index(level=['selling_amount', 'step2'])
 result['step2'] = result['step2'] - 1
 print(result)
 result.to_json('main2.json', orient='split')
-# result1.to_numpy()
-# test.to_csv('test.csv')
+result.to_csv('main2.csv')
 
-# for index, row in data.iterrows():
+# 9小时内各个金额区间的(用户A确认打款到A确认收款)占比
+hour = 9
+total_count = result['count'].sum()     # 4981
+all_required_hour_record = result[result['step2'] <= hour]
+require_hour_count = all_required_hour_record['count'].sum()
 
-# decimals = pd.Series([0, 1], index=['step1', 'selling_amountn'])
-# step1_output = step1_output.round(decimals)
-# print(step1_output)
+index0_in_hour_count = all_required_hour_record[all_required_hour_record['selling_amount'] == 0]['count'].sum()
+index1_in_hour_count = all_required_hour_record[all_required_hour_record['selling_amount'] == 1]['count'].sum()
+index2_in_hour_count = all_required_hour_record[all_required_hour_record['selling_amount'] == 2]['count'].sum()
+index3_in_hour_count = all_required_hour_record[all_required_hour_record['selling_amount'] == 3]['count'].sum()
+index4_in_hour_count = all_required_hour_record[all_required_hour_record['selling_amount'] == 4]['count'].sum()
+index5_in_hour_count = all_required_hour_record[all_required_hour_record['selling_amount'] == 5]['count'].sum()
+index6_in_hour_count = all_required_hour_record[all_required_hour_record['selling_amount'] == 6]['count'].sum()
 
-# for index, row in step1_output.iterrows():
-#     print(row['step1'])
-# print(step1_output.to_numpy())
-# step1_output.to_json('go.json', orient='split')
+index0_range_count = result[result['selling_amount'] == 0].sum()['count']
+index1_range_count = result[result['selling_amount'] == 1].sum()['count']
+index2_range_count = result[result['selling_amount'] == 2].sum()['count']
+index3_range_count = result[result['selling_amount'] == 3].sum()['count']
+index4_range_count = result[result['selling_amount'] == 4].sum()['count']
+index5_range_count = result[result['selling_amount'] == 5].sum()['count']
+index6_range_count = result[result['selling_amount'] == 6].sum()['count']
+
+print('all ', hour, 'hour: ', require_hour_count, ' / total: ', total_count, ' = ', "{:.1%}".format(require_hour_count / total_count))
+print('0-300 ', hour, 'hour: ', index0_in_hour_count, ' / range total: ', index0_range_count, ' = ', "{:.1%}".format(index0_in_hour_count / index0_range_count))
+print('300-600 ', hour, 'hour: ', index1_in_hour_count, ' / range total: ', index1_range_count, ' = ', "{:.1%}".format(index1_in_hour_count / index1_range_count))
+print('600-900 ', hour, 'hour: ', index2_in_hour_count, ' / range total: ', index2_range_count, ' = ', "{:.1%}".format(index2_in_hour_count / index2_range_count))
+print('900-1200 ', hour, 'hour: ', index3_in_hour_count, ' / range total: ', index3_range_count, ' = ', "{:.1%}".format(index3_in_hour_count / index3_range_count))
+print('1200-1500 ', hour, 'hour: ', index4_in_hour_count, ' / range total: ', index4_range_count, ' = ', "{:.1%}".format(index4_in_hour_count / index4_range_count))
+print('1500-1800 ', hour, 'hour: ', index5_in_hour_count, ' / range total: ', index5_range_count, ' = ', "{:.1%}".format(index5_in_hour_count / index5_range_count))
+print('1800-2100 ', hour, 'hour: ', index6_in_hour_count, ' / range total: ', index6_range_count, ' = ', "{:.1%}".format(index6_in_hour_count / index6_range_count))
+
+

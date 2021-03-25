@@ -61,7 +61,6 @@ step_output.loc[step_output.hour == 0, "hour"] = 1
 print(step_output)
 step_output.to_csv('test.csv')
 
-
 result = step_output.groupby(step_output.columns.tolist(), as_index=False).size().to_frame('count')
 # result1['amount'] = result1['selling_amount']
 # result1['hour'] = result1['step1']
@@ -69,17 +68,5 @@ print(result)
 result = result.reset_index(level=['selling_amount', 'hour'])
 # result['hour'] = result['hour'] - 1
 print(result)
+result.to_csv("main3.csv")
 result.to_json('main3.json', orient='split')
-# result1.to_numpy()
-# test.to_csv('test.csv')
-
-# for index, row in data.iterrows():
-
-# decimals = pd.Series([0, 1], index=['step1', 'selling_amountn'])
-# step1_output = step1_output.round(decimals)
-# print(step1_output)
-
-# for index, row in step1_output.iterrows():
-#     print(row['step1'])
-# print(step1_output.to_numpy())
-# step1_output.to_json('go.json', orient='split')
