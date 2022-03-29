@@ -2,12 +2,12 @@ import pandas as pd
 
 # 要邀请人所有交易数 和 充值总数
 
-YEAR_MONTH = '2022-01'
+YEAR_MONTH = '2022-02'
 
-inviter = pd.read_csv("../../db/new/invitation_user_2022-02-27.csv", low_memory=False)
-nmi = pd.read_csv("../../db/new/credit_nmi_transaction_2022-02-27.csv", low_memory=False)
-manual = pd.read_csv("../../db/new/credit_payment_2022-02-27.csv", low_memory=False)
-redeem = pd.read_csv("../../db/new/invitation_redeem_2022-02-27.csv", low_memory=False)
+inviter = pd.read_csv("../../db/new/invitation_user_2022-03-29.csv", low_memory=False)
+nmi = pd.read_csv("../../db/new/credit_nmi_transaction_2022-03-29.csv", low_memory=False)
+manual = pd.read_csv("../../db/new/credit_payment_2022-03-29.csv", low_memory=False)
+redeem = pd.read_csv("../../db/new/invitation_redeem_2022-03-29.csv", low_memory=False)
 
 inviter['create_time'] = pd.to_datetime(inviter['create_time'], unit='s')
 inviter['create_time'] = inviter['create_time'].dt.strftime('%Y-%m')

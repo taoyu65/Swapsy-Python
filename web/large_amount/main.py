@@ -1,7 +1,7 @@
 import pandas as pd
 # 换人民币超过5万 10万 20万 50万的用户数
 
-trade = pd.read_csv("../../db/new/trade_2022-03-21.csv", low_memory=False)
+trade = pd.read_csv("../../db/new/trade 3-8.csv", low_memory=False)
 
 trade['user_id'] = trade['seller_id']
 trade = trade[['user_id', 'create_time', 'status', 'buying_currency', 'buying_amount']]
@@ -14,7 +14,7 @@ trade = trade[trade['status'] == 40]
 trade1 = trade[trade['buying_currency'] == 'CNY']
 trade1 = trade1.groupby(['user_id'])['buying_amount'].sum()
 trade1.to_csv('csv/need_cny.csv')
-print(trade1)
+print("f")
 
 # 需求美元的
 trade2 = trade[trade['buying_currency'] == 'USD']
